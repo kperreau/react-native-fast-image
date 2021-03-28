@@ -17,6 +17,7 @@ import com.bumptech.glide.load.model.Headers;
 import com.bumptech.glide.load.model.LazyHeaders;
 import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.signature.ApplicationVersionSignature;
+import com.bumptech.glide.request.RequestOptions.bitmapTransform;
 import com.facebook.react.bridge.JSApplicationIllegalArgumentException;
 import com.facebook.react.bridge.NoSuchKeyException;
 import com.facebook.react.bridge.ReadableMap;
@@ -112,6 +113,10 @@ class FastImageViewConverter {
             .skipMemoryCache(skipMemoryCache)
             .priority(priority)
             .placeholder(TRANSPARENT_DRAWABLE);
+        
+        if (blur > 0) {
+            options = options.bitmapTransform(BlurTransformation(25, 3));
+        }
         
         if (imageSource.isResource()) {
             // Every local resource (drawable) in Android has its own unique numeric id, which are
