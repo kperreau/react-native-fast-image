@@ -39,7 +39,7 @@ class FastImageViewManager extends SimpleViewManager<FastImageViewWithUrl> imple
 
     @Nullable
     private RequestManager requestManager = null;
-    private Integer blur = 0;
+    private int blur = 0;
 
     @Override
     public String getName() {
@@ -54,9 +54,9 @@ class FastImageViewManager extends SimpleViewManager<FastImageViewWithUrl> imple
 
         return new FastImageViewWithUrl(reactContext);
     }
-    
+
     @ReactProp(name = "blurRadius")
-    public void setSizeOriginal(FastImageViewWithUrl view, @Nullable Integer blurRadius) {
+    public void setSizeOriginal(FastImageViewWithUrl view, @Nullable int blurRadius) {
         blur = blurRadius;
     }
 
