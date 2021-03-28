@@ -39,6 +39,7 @@ class FastImageViewManager extends SimpleViewManager<FastImageViewWithUrl> imple
 
     @Nullable
     private RequestManager requestManager = null;
+    private Integer blur = 0;
 
     @Override
     public String getName() {
@@ -52,6 +53,11 @@ class FastImageViewManager extends SimpleViewManager<FastImageViewWithUrl> imple
         }
 
         return new FastImageViewWithUrl(reactContext);
+    }
+    
+    @ReactProp(name = "blurRadius")
+    public void setSizeOriginal(FastImageViewWithUrl view, @Nullable Integer blurRadius) {
+        blur = blurRadius;
     }
 
     @ReactProp(name = "source")
@@ -67,6 +73,7 @@ class FastImageViewManager extends SimpleViewManager<FastImageViewWithUrl> imple
             }
             // Clear the image.
             view.setImageDrawable(null);
+            blur = 0;
             return;
         }
 
@@ -104,7 +111,7 @@ class FastImageViewManager extends SimpleViewManager<FastImageViewWithUrl> imple
                     //    - android.resource://
                     //    - data:image/png;base64
                     .load(imageSource.getSourceForLoad())
-                    .apply(FastImageViewConverter.getOptions(context, imageSource, source))
+                    .apply(FastImageViewConverter.getOptions(context, imageSource, source, blur))
                     .listener(new FastImageRequestListener(key))
                     .into(view);
         }
