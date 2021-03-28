@@ -115,7 +115,7 @@ class FastImageViewConverter {
             .placeholder(TRANSPARENT_DRAWABLE);
         
         if (blur > 0) {
-            options = options.bitmapTransform(BlurTransformation(25, 3));
+            options = options.bitmapTransform(BlurTransformation(blur));
         }
         
         if (imageSource.isResource()) {
