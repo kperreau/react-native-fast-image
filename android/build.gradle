@@ -4,7 +4,7 @@ buildscript {
         google()
     }
     dependencies {
-        classpath "com.android.tools.build:gradle:3.4.0"
+        classpath "com.android.tools.build:gradle:4.1.2"
     }
 }
 
@@ -17,7 +17,7 @@ def safeExtGet(prop, fallback) {
 def _excludeAppGlideModule = safeExtGet("excludeAppGlideModule", false)
 def _buildToolsVersion = safeExtGet("buildToolsVersion", "28.0.3")
 def _compileSdkVersion = safeExtGet("compileSdkVersion", 28)
-def _glideVersion = safeExtGet("glideVersion", "4.11.0")
+def _glideVersion = safeExtGet("glideVersion", "4.12.0")
 def _minSdkVersion = safeExtGet("minSdkVersion", 16)
 def _reactNativeVersion = safeExtGet("reactNative", "+")
 def _targetSdkVersion = safeExtGet("targetSdkVersion", 28)
