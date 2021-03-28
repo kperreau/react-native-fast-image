@@ -85,7 +85,7 @@ class FastImageViewConverter {
         return headers;
     }
 
-    static RequestOptions getOptions(Context context, FastImageSource imageSource, ReadableMap source) {
+    static RequestOptions getOptions(Context context, FastImageSource imageSource, ReadableMap source, Integer blur) {
         // Get priority.
         final Priority priority = FastImageViewConverter.getPriority(source);
         // Get cache control method.
